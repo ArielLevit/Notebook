@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="General">
+
+        <EditTextPreference
+            android:title="Notebook Title"
+            android:summary="The title that will be used on the main action bar."
+            android:key="title"
+            android:defaultValue="Notebook" />
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:title="Theme" >
+
+        <CheckBoxPreference
+            android:title="Batman Theme"
+            android:summary="''I was born in the darkness''"
+            android:key="pref_dark_theme"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

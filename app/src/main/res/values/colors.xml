@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- brand color -->
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+
+    <color name="colorPrimaryInverse">#292929</color>
+    <color name="colorPrimaryDarkInverse">#000000</color>
+
+    <!-- accent color -->
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccentInverse">#d42828</color>
+
+    <!-- text color: Light theme -->
+    <color name="textColorPrimary">#de000000</color>
+    <color name="textColorSecondary">#000000</color>
+
+    <!-- text color: Batman theme -->
+    <color name="textColorPrimaryInverse">#ffffff</color>
+    <color name="textColorSecondaryInverse">#d1d1d1</color>
+
+    <color name="colorBackground">#434343</color>
+
+</resources>
+

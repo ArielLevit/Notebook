@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="12dp"
+    android:paddingEnd="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    >
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/noteScrollView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
+
+        <EditText
+            style="@style/textNotes.title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Title"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:minLines="1"
+            android:inputType="text"
+            android:id="@+id/editNoteTitle"
+            android:layout_marginBottom="15dp"
+            android:textSize="18sp" />
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/messageScrollView"
+        android:layout_below="@+id/noteScrollView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:fillViewport="false"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="9dp"
+        android:layout_above="@+id/saveNote">
+
+        <EditText
+            style="@style/textNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:inputType="textMultiLine"
+            android:text="New Text"
+            android:minLines="1"
+            android:id="@+id/editNoteMessage"
+            android:textSize="20dp"
+
+            android:gravity="top" />
+    </ScrollView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@id/saveNote"
+        android:text="@string/save_note_button"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/messageScrollView"
+
+        />
+
+
+</RelativeLayout>

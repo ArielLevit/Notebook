@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.view.View;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -20,7 +22,7 @@ public class NotebookDbAdapter {
     public static final String COLUMN_TITLE = "title";
     public static final String COLUMN_MESSAGE = "message";
     public static final String COLUMN_DATE = "date";
-  //  public static final String COLUMN_DELETED = "deleted";
+//    public static final String COLUMN_DELETED = "deleted";
 
     private String[] allColumns = { COLUMN_ID, COLUMN_TITLE, COLUMN_MESSAGE, COLUMN_DATE};
 

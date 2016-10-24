@@ -44,6 +44,7 @@ public class NoteAdapter extends ArrayAdapter<Note> {
 
         ViewHolder.title.setText(note.getTitle());
         ViewHolder.message.setText(note.getMessage());
+//        ViewHolder.description.setVisibility(View.GONE);
 
         return convertView;
     }

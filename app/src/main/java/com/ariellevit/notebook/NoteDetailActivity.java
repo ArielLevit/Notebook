@@ -82,6 +82,13 @@ public class NoteDetailActivity extends AppCompatActivity {
 
 
     public void onBackPressed() {
+        Intent intent = getIntent();
+        MainActivity.FragmentToLaunch fragmentToLaunch =
+                (MainActivity.FragmentToLaunch) intent.getSerializableExtra(MainActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA);
+        if (fragmentToLaunch.equals(MainActivity.FragmentToLaunch.VIEW)){
+            NoteDetailActivity.this.finish();
+            return;
+        }
         new AlertDialog.Builder(this)
                 .setMessage("Are you sure you want to exit without saving?")
                 .setCancelable(false)

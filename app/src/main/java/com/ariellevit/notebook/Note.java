@@ -7,6 +7,7 @@ public class Note {
 
     private String title, message;
     private long noteId, dateCreatedMilli;
+    private int hide;
 
     public Note(String title, String message) {
         this.title = title;
@@ -15,11 +16,12 @@ public class Note {
         this.dateCreatedMilli = 0;
     }
 
-    public Note(String title, String message, long noteId, long dateCreatedMilli) {
+    public Note(String title, String message, long noteId, long dateCreatedMilli, int hide) {
         this.title = title;
         this.message = message;
         this.noteId = noteId;
         this.dateCreatedMilli = dateCreatedMilli;
+        this.hide = hide;
     }
 
     public String getTitle() {
@@ -36,6 +38,10 @@ public class Note {
 
     public long getNoteId() {
         return noteId;
+    }
+
+    public int getHide() {
+        return hide;
     }
 
     public String toString(){

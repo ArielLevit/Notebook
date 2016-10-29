@@ -9,9 +9,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by ARIEL on 28/08/2016.
- */
+
 public class NoteAdapter extends ArrayAdapter<Note> {
 
     public static class ViewHolder{

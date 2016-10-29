@@ -17,20 +17,20 @@ public class NotebookDbAdapter {
     private static final String DATABASE_NAME = "notebook.db";
     private static final int DATABASE_VERSION = 1;
 
-    public static final String NOTE_TABLE ="note";
+    public static final String NOTE_TABLE = "note";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_TITLE = "title";
     public static final String COLUMN_MESSAGE = "message";
     public static final String COLUMN_DATE = "date";
-//    public static final String COLUMN_DELETED = "deleted";
+    public static final String COLUMN_DELETED = "deleted";
 
-    private String[] allColumns = { COLUMN_ID, COLUMN_TITLE, COLUMN_MESSAGE, COLUMN_DATE};
+    private String[] allColumns = { COLUMN_ID, COLUMN_TITLE, COLUMN_MESSAGE, COLUMN_DATE, COLUMN_DELETED};
 
     public static final String CREATE_TABLE_NOTE = "create table " + NOTE_TABLE + " ( "
             + COLUMN_ID + " integer primary  key autoincrement, "
             + COLUMN_TITLE + " text not null, "
             + COLUMN_MESSAGE + " text not null, "
-            + COLUMN_DATE + ");";
+            + COLUMN_DATE + COLUMN_DELETED + " INTEGER DEFAULT 0" + ");";
 
     private SQLiteDatabase sqlDB;
     private Context context;
@@ -54,7 +54,7 @@ public class NotebookDbAdapter {
         ContentValues values = new ContentValues();
         values.put(COLUMN_TITLE, title);
         values.put(COLUMN_MESSAGE, message);
-//      values.put(COLUMN_DELETED, false);
+        values.put(COLUMN_DELETED, 0);
         values.put(COLUMN_DATE, Calendar.getInstance().getTimeInMillis() + "");
 
         long insertId = sqlDB.insert(NOTE_TABLE, null, values);
@@ -68,13 +68,15 @@ public class NotebookDbAdapter {
         return newNote;
     }
 
-    public boolean deleteNote(long id) {
-        return sqlDB.delete(NOTE_TABLE, COLUMN_ID + "=" + id, null) > 0;
-    }
-
-//    public long deleteNote (long idToDelete){
-//        return sqlDB.delete(NOTE_TABLE, COLUMN_ID + " = " + idToDelete, null);
+//    public boolean deleteNote(long id) {
+//        return sqlDB.delete(NOTE_TABLE, COLUMN_ID + "=" + id, null) > 0;
 //    }
+
+    public long updateDeleteNote (long idToUpdate){
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_DELETED, 1);
+        return sqlDB.update(NOTE_TABLE, values, COLUMN_ID + " = " + idToUpdate, null);
+    }
 
 
 
@@ -90,7 +92,7 @@ public class NotebookDbAdapter {
     public ArrayList<Note> getAllNotes(){
         ArrayList<Note> notes = new ArrayList<Note>();
 
-        //Grab all the information from our database for  the notes in it
+        //Grab all the information from our database for the notes in it
         Cursor cursor = sqlDB.query(NOTE_TABLE, allColumns, null, null, null, null, null);
 
         for (cursor.moveToLast(); !cursor.isBeforeFirst(); cursor.moveToPrevious()){
@@ -105,7 +107,7 @@ public class NotebookDbAdapter {
 
     private Note cursorToNote (Cursor cursor) {
         Note newNote = new Note ( cursor.getString(1), cursor.getString(2), cursor.getLong(0),
-                cursor.getLong(3));
+                cursor.getLong(3), cursor.getInt(4));
         return newNote;
     }
 

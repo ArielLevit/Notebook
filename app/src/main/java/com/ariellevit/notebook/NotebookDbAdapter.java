@@ -30,7 +30,7 @@ public class NotebookDbAdapter {
             + COLUMN_ID + " integer primary  key autoincrement, "
             + COLUMN_TITLE + " text not null, "
             + COLUMN_MESSAGE + " text not null, "
-            + COLUMN_DATE + " , " + COLUMN_DELETED + " INTEGER DEFAULT 0" + ");";
+            + COLUMN_DATE + ");";
 
     private SQLiteDatabase sqlDB;
     private Context context;
